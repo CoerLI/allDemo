@@ -11,7 +11,6 @@ public class copyProgram {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public static void fileCopyByReader() throws IOException{
