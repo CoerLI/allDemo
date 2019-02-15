@@ -9,5 +9,6 @@
         <module name="allDemo" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="8" />
   </component>
 </project>

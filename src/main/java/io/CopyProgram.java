@@ -2,7 +2,7 @@ package io;
 
 import java.io.*;
 
-public class copyProgram {
+public class CopyProgram {
     private static String path = "/Users/lihang/allDemo/src/main/java";
     public static void main(String[] args){
         try {
