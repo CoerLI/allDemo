@@ -1,8 +1,5 @@
 package structure;
 
-import com.sun.source.tree.NewClassTree;
-import sun.rmi.runtime.NewThreadAction;
-
 public class MyHashMap<K extends Comparable, V> {
     // capacity 桶的数量，size 键值对的数量
     static final int DEFAULT_INITIAL_CAPACITY = 1 << 4;
@@ -113,8 +110,6 @@ public class MyHashMap<K extends Comparable, V> {
                     }
                 }
             }
-            System.out.println(table+ " " + table.length);
-            System.out.println(newTable+ " " + newTable.length);
             table = newTable;
             capacity = newCapacity;
         }
@@ -135,9 +130,6 @@ public class MyHashMap<K extends Comparable, V> {
         if (table == null || table.length == 0 || table.length < (index = getIndex(key, capacity)) || table[index] == null) {
             return null;
         }
-//        测试hash碰撞时的存取
-//        System.out.println(table+ " " + table.length);
-
         Entry<K, V> e = table[index];
         // 遍历链表
         while (true) {
@@ -153,28 +145,41 @@ public class MyHashMap<K extends Comparable, V> {
         return null;
     }
 
-//    public V remove(K key) {
-//        int index;
-//        if (table == null || table.length == 0 || table.length < (index = getIndex(key, capacity)) || table[index] == null) {
-//            return null;
-//        }
-//
-//        Entry<K, V> pre = table[index];
-//        Entry<K, V> cur;
-//        // 遍历链表
-//        while (true) {
-//            if (cur == null) {
-//                break;
-//            }
-//            // 找到key相同的，取出
-//            if (cur.key == key || cur.key.equals(key)) {
-//                V val = cur.val;
-//                pre.next = cur.next;
-//                return val;
-//            }
-//        }
-//        return null;
-//    }
+    public V remove(K key) {
+        int index;
+        if (table == null || table.length == 0 || table.length < (index = getIndex(key, capacity)) || table[index] == null) {
+            return null;
+        }
+        V val;
+        Entry<K, V> pre = table[index];
+        if (pre.next == null) {
+            if (pre.key == key || pre.key.equals(key)) {
+                val = pre.val;
+                table[index] = null;
+                return val;
+            }
+            return null;
+        }
+        Entry<K, V> cur = pre.next;
+
+        // 遍历链表
+        while (cur != null) {
+            if (cur.key == key || cur.key.equals(key)) {
+                val = cur.val;
+                if (cur.next == null) {
+                    pre.next = null;
+                } else {
+                    pre.next = cur.next;
+                }
+                return val;
+            } else {
+                pre = pre.next;
+                cur = cur.next;
+            }
+        }
+        System.out.println(1);
+        return null;
+    }
 
     public boolean containsKey(K key) {
         if (get(key) == null) {
