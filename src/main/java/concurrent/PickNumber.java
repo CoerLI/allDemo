@@ -1,5 +1,6 @@
 package concurrent;
 
+import javax.sound.midi.Soundbank;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public interface PickNumber {
@@ -17,6 +18,7 @@ class PickNumberSync implements PickNumber {
         return number++;
     }
 
+
     public PickNumberSync() {
     }
 }
@@ -32,13 +34,13 @@ class PickNumberAtomicly implements PickNumber {
     }
 }
 
-class PickNumberVolatility implements PickNumber {
+class PickNumberWithoutSync implements PickNumber {
     private int number = 1;
     //  线程不安全
     public int pickNumber() {
         return number++;
     }
 
-    public PickNumberVolatility() {
+    public PickNumberWithoutSync() {
     }
 }

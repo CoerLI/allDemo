@@ -34,6 +34,7 @@ public class TestPickNumber {
             e.printStackTrace();
         }
     }
+
     @Test
     public void testPickNumberAtomicly() {
         int count = 100000;
@@ -48,13 +49,14 @@ public class TestPickNumber {
             e.printStackTrace();
         }
     }
+
     @Test
     public void testPackNumberVolatility() {
         int count = 100000;
         Class PackNamberSync = null;
         Method method = null;
         try {
-            Class pickNumber = Class.forName("concurrent.PickNumberVolatility");
+            Class pickNumber = Class.forName("concurrent.PickNumberWithoutSync");
             Constructor constructor = pickNumber.getConstructor();
             constructor.setAccessible(true);
             testPackNumber((PickNumber) constructor.newInstance(), count);
@@ -89,6 +91,6 @@ public class TestPickNumber {
         }
 
         long end = System.currentTimeMillis();
-        logger.log(Level.INFO, pickNumber.getClass().getName()+" : "+map.size() + " -- " + (end - start));
+        logger.log(Level.INFO, pickNumber.getClass().getName() + " : " + map.size() + " -- " + (end - start));
     }
 }
