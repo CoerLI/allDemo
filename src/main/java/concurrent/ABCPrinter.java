@@ -14,7 +14,7 @@ public class ABCPrinter {
                 e.printStackTrace();
             }
         }
-        System.out.println(Thread.currentThread().getName()+"    a");
+        System.out.println(Thread.currentThread().getName() + "    a");
         state = 2;
         this.notifyAll();
     }
@@ -27,7 +27,7 @@ public class ABCPrinter {
                 e.printStackTrace();
             }
         }
-        System.out.println(Thread.currentThread().getName()+"    b");
+        System.out.println(Thread.currentThread().getName() + "    b");
         state = 3;
         this.notifyAll();
     }
@@ -40,7 +40,7 @@ public class ABCPrinter {
                 e.printStackTrace();
             }
         }
-        System.out.println(Thread.currentThread().getName()+"    c");
+        System.out.println(Thread.currentThread().getName() + "    c");
         state = 1;
         this.notifyAll();
     }

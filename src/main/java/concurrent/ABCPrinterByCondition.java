@@ -10,11 +10,11 @@ public class ABCPrinterByCondition {
     Condition notC = lock.newCondition();
 
     int count = 1;
-    final int max = 6;
+    int max = 6;
 
     public void print_a() {
-        lock.lock();
         while (count <= max) {
+            lock.lock();
             while (count % 3 != 1) {
                 try {
                     notA.await();
@@ -25,14 +25,14 @@ public class ABCPrinterByCondition {
             if (count <= max)
                 System.out.println(Thread.currentThread().getName() + "   a");
             count++;
-            notB.signalAll();
+            notB.signal();
+            lock.unlock();
         }
-        lock.unlock();
     }
 
     public void print_b() {
-        lock.lock();
         while (count <= max) {
+            lock.lock();
             while (count % 3 != 2) {
                 try {
                     notB.await();
@@ -43,14 +43,14 @@ public class ABCPrinterByCondition {
             if (count <= max)
                 System.out.println(Thread.currentThread().getName() + "   b");
             count++;
-            notC.signalAll();
+            notC.signal();
+            lock.unlock();
         }
-        lock.unlock();
     }
 
     public void print_c() {
-        lock.lock();
         while (count <= max) {
+            lock.lock();
             while (count % 3 != 0) {
                 try {
                     notC.await();
@@ -61,13 +61,17 @@ public class ABCPrinterByCondition {
             if (count <= max)
                 System.out.println(Thread.currentThread().getName() + "   c");
             count++;
-            notA.signalAll();
+            notA.signal();
+            lock.unlock();
         }
-        lock.unlock();
+    }
+
+    public ABCPrinterByCondition(int max) {
+        this.max = max;
     }
 
     public static void main(String[] args) throws Exception {
-        ABCPrinterByCondition printer = new ABCPrinterByCondition();
+        ABCPrinterByCondition printer = new ABCPrinterByCondition(15);
         Thread a = new Thread(() -> printer.print_a());
         Thread b = new Thread(() -> printer.print_b());
         Thread c = new Thread(() -> printer.print_c());

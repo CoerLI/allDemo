@@ -1,6 +1,5 @@
 package concurrent;
 
-import javax.sound.midi.Soundbank;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public interface PickNumber {
@@ -25,6 +24,7 @@ class PickNumberSync implements PickNumber {
 
 class PickNumberAtomicly implements PickNumber {
     private AtomicInteger number = new AtomicInteger(1);
+
     //  juc包包含原子操作类，通过cas实现原子操作，因此线程安全
     public int pickNumber() {
         return number.getAndIncrement();
@@ -36,6 +36,7 @@ class PickNumberAtomicly implements PickNumber {
 
 class PickNumberWithoutSync implements PickNumber {
     private int number = 1;
+
     //  线程不安全
     public int pickNumber() {
         return number++;

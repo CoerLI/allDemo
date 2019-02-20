@@ -51,7 +51,7 @@ public class TestPickNumber {
     }
 
     @Test
-    public void testPackNumberVolatility() {
+    public void PickNumberWithoutSync() {
         int count = 100000;
         Class PackNamberSync = null;
         Method method = null;
