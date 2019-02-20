@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="351e3dac-fbea-4b17-a3b6-e62d842818b2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/concurrent/BankHall.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/concurrent/ThreadPoolDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/concurrent/TwoThreadPrinterByCondition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/concurrent/ABCPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/concurrent/ABCPrinter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/concurrent/ABCPrinterByCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/concurrent/ABCPrinterByCondition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/concurrent/PickNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/concurrent/PickNumber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/concurrent/TwoThreadPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/concurrent/TwoThreadPrint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/test/TestPickNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/test/TestPickNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/concurrent/BankHall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/concurrent/BankHall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/concurrent/ThreadPoolDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/concurrent/ThreadPoolDemo.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -31,11 +26,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/concurrent/BankHall.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="27" column="6" lean-forward="true" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
+            <state relative-caret-position="567">
+              <caret line="80" column="52" selection-start-line="80" selection-start-column="52" selection-end-line="80" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#872#873#0" expanded="true" />
+                <element signature="e#847#848#0" expanded="true" />
+                <element signature="e#877#878#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -53,8 +49,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/concurrent/ThreadPoolDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="176">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -135,6 +134,7 @@
         <option value="$PROJECT_DIR$/src/main/java/concurrent/BankHall_3.java" />
         <option value="$PROJECT_DIR$/src/main/java/concurrent/BankHall_2.java" />
         <option value="$PROJECT_DIR$/src/main/java/concurrent/BankHall.java" />
+        <option value="$PROJECT_DIR$/src/main/java/concurrent/ThreadPoolDemo.java" />
       </list>
     </option>
   </component>
@@ -249,12 +249,12 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550654599324" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550661721349" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.35465115" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -442,7 +442,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49496645" visible="true" weight="0.18025751" />
       <window_info id="Structure" order="1" sideWeight="0.50503355" side_tool="true" weight="0.23175965" />
@@ -453,7 +452,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.50503355" side_tool="true" weight="0.23175965" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" visible="true" weight="0.26279864" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" visible="true" weight="0.28100115" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.48464164" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -827,17 +826,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/concurrent/BankHall.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="27" column="6" lean-forward="true" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#872#873#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/src.zip!/java/util/concurrent/locks/Lock.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -845,10 +833,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/concurrent/BankHall.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="80" column="52" selection-start-line="80" selection-start-column="52" selection-end-line="80" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#847#848#0" expanded="true" />
+            <element signature="e#877#878#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/concurrent/ThreadPoolDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="176">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

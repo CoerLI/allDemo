@@ -2,18 +2,19 @@ package concurrent;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 class Ticket {
-    String MachineName;
+    String machineName;
     int number;
     int remainNo;
 
     public Ticket(String MachineName, int number, int remainNo) {
-        this.MachineName = MachineName;
+        this.machineName = MachineName;
         this.number = number;
         this.remainNo = remainNo;
     }
@@ -21,8 +22,7 @@ class Ticket {
 
 public class BankHall {
     private Logger logger = Logger.getLogger(this.getClass().getName());
-    private int ticketCount = 1;
-    private int serviceCount = 1;
+    private int ticketNumber = 1;
     private int max;
     private BlockingQueue<Ticket> queue = new LinkedBlockingQueue();
     Lock lock = new ReentrantLock();
@@ -33,33 +33,36 @@ public class BankHall {
 
     // 多个出票窗口共同使用一个出票机器
     private synchronized Ticket machineOutTicket() {
-        Ticket ticket = new Ticket(Thread.currentThread().getName(), ticketCount++, queue.size());
+        Ticket ticket = new Ticket(Thread.currentThread().getName(), ticketNumber++, queue.size());
         queue.offer(ticket);
         return ticket;
     }
 
     // 模拟出票窗口每隔一段时间出一张票
-    public void getNumber() {
-        if (ticketCount > max)
+    public void getTicket() {
+        if (ticketNumber > max)
             return;
+
         lock.lock();
         Ticket ticket = machineOutTicket();
-        logger.log(Level.INFO, ticket.MachineName + " 出票, 票号 "
+        logger.log(Level.INFO, ticket.machineName + " 出票, 票号 "
                 + ticket.number + " ,前面有 " + ticket.remainNo + " 人");
         lock.unlock();
+
         try {
-            Thread.sleep((int) (Math.random() * 10000));
+            Thread.sleep((int) (Math.random() * 3000));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        getNumber();
+        getTicket();
     }
 
     // 不同柜员叫号，不能重复
     private Ticket consumeTicket() {
         Ticket ticket = null;
         try {
-            ticket = queue.take();
+
+            ticket = queue.poll(3000, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -67,17 +70,20 @@ public class BankHall {
     }
 
     // 柜员叫号，服务一段时间后，再次叫号
-    public void service() {
+    public void doService() {
         Ticket ticket = consumeTicket();
+        if(ticket == null)
+            return ;
         logger.log(Level.INFO, Thread.currentThread().getName()
                 + " 正在服务 顾客 " + ticket.number + ",还有 " + queue.size() + " 人等待");
+
         try {
-            Thread.sleep((int) (Math.random() * 10000));
-            serviceCount++;
+            Thread.sleep((int) (Math.random() * 2000));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        service();
+
+        doService();
     }
 
     public static void main(String[] args) {
@@ -86,14 +92,14 @@ public class BankHall {
         int machine = 5;
         for (int i = 0; i < server; i++) {
             Thread t = new Thread(() -> {
-                bankHall.service();
+                bankHall.doService();
             });
             t.setName("柜员 " + i);
             t.start();
         }
         for (int i = 0; i < machine; i++) {
             Thread t = new Thread(() -> {
-                bankHall.getNumber();
+                bankHall.getTicket();
             });
             t.setName("出票窗口 " + i);
             t.start();
