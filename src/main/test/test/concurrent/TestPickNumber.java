@@ -1,10 +1,14 @@
-import concurrent.PickNumber;
+package concurrent;
+
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
-import java.util.HashMap;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -50,36 +54,19 @@ public class TestPickNumber {
         }
     }
 
-    @Test
-    public void PickNumberWithoutSync() {
-        int count = 100000;
-        Class PackNamberSync = null;
-        Method method = null;
-        try {
-            Class pickNumber = Class.forName("concurrent.PickNumberWithoutSync");
-            Constructor constructor = pickNumber.getConstructor();
-            constructor.setAccessible(true);
-            testPackNumber((PickNumber) constructor.newInstance(), count);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public void testPackNumber(PickNumber pickNumber, int latchCount) {
-        long start = System.currentTimeMillis();
         PickNumber pn = pickNumber;
+
         CountDownLatch latch = new CountDownLatch(latchCount);
-        HashMap<Integer, Integer> map = new HashMap<>();
-        ExecutorService pool = Executors.newFixedThreadPool(10);
+
+        Set<Integer> set = Collections.synchronizedSet(new HashSet());
+
+        ExecutorService pool = Executors.newFixedThreadPool(20);
+
         for (int i = 0; i < latchCount; i++) {
             pool.submit(() -> {
                 int number = pn.pickNumber();
-                synchronized (pn) {
-                    if (map.containsKey(number))
-                        map.put(number, map.get(number) + 1);
-                    else
-                        map.put(number, 1);
-                }
+                set.add(number);
                 latch.countDown();
             });
         }
@@ -89,8 +76,19 @@ public class TestPickNumber {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        // 检查是否有重复
+        Assert.assertEquals(latchCount, (long) set.size());
 
-        long end = System.currentTimeMillis();
-        logger.log(Level.INFO, pickNumber.getClass().getName() + " : " + map.size() + " -- " + (end - start));
+        Object[] array = set.toArray();
+        int min = 1;
+        int max = latchCount;
+        for (int i = 0; i < array.length; i++) {
+            min = Math.min(min, (Integer) array[i]);
+            max = Math.max(max, (Integer) array[i]);
+        }
+        // 检查最大值最小值是否正确
+        Assert.assertEquals(1, min);
+        Assert.assertEquals(latchCount, max);
+
     }
 }

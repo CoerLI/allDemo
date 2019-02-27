@@ -3,49 +3,53 @@ package concurrent;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 public class TwoThreadPrinterByCondition {
     Lock lock = new ReentrantLock();
     Condition not1 = lock.newCondition();
     Condition not2 = lock.newCondition();
-    int count = 1;
+    int cur = 1;
     int max = 0;
+    Logger logger = Logger.getLogger(this.getClass().getName());
 
     public TwoThreadPrinterByCondition(int max) {
         this.max = max;
     }
 
     public void print_1() {
-        while (count <= max) {
+        while (cur <= max) {
             lock.lock();
-            while (count % 2 != 1) {
+            while (cur % 2 != 1) {
                 try {
                     not1.await();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-            if (count <= max)
-                System.out.println(Thread.currentThread().getName() + " " + count);
-            count++;
+            if (cur <= max)
+                logger.log(Level.INFO, Thread.currentThread().getName() + " " + cur);
+            cur++;
             not2.signalAll();
             lock.unlock();
         }
     }
 
     public void print_2() {
-        while (count <= max) {
+        while (cur <= max) {
             lock.lock();
-            while (count % 2 != 0) {
+            while (cur % 2 != 0) {
                 try {
                     not2.await();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-            if (count <= max)
-                System.out.println(Thread.currentThread().getName() + " " + count);
-            count++;
+            if (cur <= max)
+                logger.log(Level.INFO, Thread.currentThread().getName() + " " + cur);
+            cur++;
             not1.signalAll();
             lock.unlock();
         }

@@ -2,7 +2,7 @@ package structure;
 
 public class MyHashMap<K extends Comparable, V> {
     // capacity 桶的数量，size 键值对的数量
-    static final int DEFAULT_INITIAL_CAPACITY = 1 << 4;
+    static final int DEFAULT_INITIAL_CAPACITY = 16;
     static final float DEFAULT_LOAD_FACOTR = 0.75f;
 
     Entry[] table;
@@ -65,7 +65,9 @@ public class MyHashMap<K extends Comparable, V> {
                 // 遇到相同key的，覆盖
                 if (head.key == key || head.key.equals(key)) {
                     head.val = val;
-                    size--;
+                    if (table == this.table) {
+                        size--;
+                    }
                     break;
                 }
                 // 到链表结尾，插入

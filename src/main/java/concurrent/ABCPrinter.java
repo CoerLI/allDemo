@@ -2,9 +2,12 @@ package concurrent;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ABCPrinter {
     int state = 1;
+    Logger logger = Logger.getLogger(this.getClass().getName());
 
     public synchronized void print_a() {
         while (state != 1) {
@@ -14,7 +17,7 @@ public class ABCPrinter {
                 e.printStackTrace();
             }
         }
-        System.out.println(Thread.currentThread().getName() + "    a");
+        logger.log(Level.INFO, Thread.currentThread().getName() + "    a");
         state = 2;
         this.notifyAll();
     }
@@ -27,7 +30,7 @@ public class ABCPrinter {
                 e.printStackTrace();
             }
         }
-        System.out.println(Thread.currentThread().getName() + "    b");
+        logger.log(Level.INFO, Thread.currentThread().getName() + "    b");
         state = 3;
         this.notifyAll();
     }
@@ -40,7 +43,7 @@ public class ABCPrinter {
                 e.printStackTrace();
             }
         }
-        System.out.println(Thread.currentThread().getName() + "    c");
+        logger.log(Level.INFO, Thread.currentThread().getName() + "    c");
         state = 1;
         this.notifyAll();
     }

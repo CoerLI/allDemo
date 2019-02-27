@@ -1,3 +1,5 @@
+package concurrent;
+
 import org.junit.Test;
 import structure.MyHashMap;
 import org.junit.Assert;

@@ -2,6 +2,7 @@ package concurrent;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -10,7 +11,7 @@ public class ThreadPoolDemo {
         Logger logger = Logger.getLogger(new ThreadPoolDemo().getClass().getName());
 
         ExecutorService pool = Executors.newFixedThreadPool(10);
-//        ExecutorService pool2 = Executors.newScheduledThreadPool(10);
+        ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(10);
 
         for (int i = 0; i < 200; i++) {
             pool.execute(() -> {

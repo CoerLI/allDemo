@@ -17,7 +17,6 @@ class PickNumberSync implements PickNumber {
         return number++;
     }
 
-
     public PickNumberSync() {
     }
 }
@@ -31,17 +30,5 @@ class PickNumberAtomicly implements PickNumber {
     }
 
     public PickNumberAtomicly() {
-    }
-}
-
-class PickNumberWithoutSync implements PickNumber {
-    private int number = 1;
-
-    //  线程不安全
-    public int pickNumber() {
-        return number++;
-    }
-
-    public PickNumberWithoutSync() {
     }
 }

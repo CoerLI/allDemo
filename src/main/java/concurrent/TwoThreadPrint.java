@@ -1,41 +1,45 @@
 package concurrent;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class TwoThreadPrint {
-    int num = 1;
+    int cur = 1;
     int max = 0;
+    Logger logger = Logger.getLogger(this.getClass().getName());
 
     public TwoThreadPrint(int max) {
         this.max = max;
     }
 
-    // 两个线程交替运行，则在方法内部控制范围
+    // 两个线程交替运行，在方法内部控制结束条件
     // 多个线程按一定顺序执行，则可以通过控制线程数来控制范围，参考ABCPrinter
     public synchronized void pirnt_2() {
-        while (num < max) {
-            while (num % 2 != 0) {
+        while (cur < max) {
+            while (cur % 2 != 0) {
                 try {
                     this.wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-            System.out.println(Thread.currentThread().getName() + "  " + num);
-            num++;
+            logger.log(Level.INFO, Thread.currentThread().getName() + "  " + cur);
+            cur++;
             this.notify();
         }
     }
 
     public synchronized void pirnt_1() {
-        while (num < max) {
-            while (num % 2 != 1) {
+        while (cur < max) {
+            while (cur % 2 != 1) {
                 try {
                     this.wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-            System.out.println(Thread.currentThread().getName() + "  " + num);
-            num++;
+            logger.log(Level.INFO, Thread.currentThread().getName() + "  " + cur);
+            cur++;
             this.notify();
         }
     }

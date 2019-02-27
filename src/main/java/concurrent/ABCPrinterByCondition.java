@@ -2,65 +2,67 @@ package concurrent;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ABCPrinterByCondition {
     ReentrantLock lock = new ReentrantLock();
     Condition notA = lock.newCondition();
     Condition notB = lock.newCondition();
     Condition notC = lock.newCondition();
-
-    int count = 1;
+    Logger logger = Logger.getLogger(this.getClass().getName());
+    int cur = 1;
     int max = 6;
 
     public void print_a() {
-        while (count <= max) {
+        while (cur <= max) {
             lock.lock();
-            while (count % 3 != 1) {
+            while (cur % 3 != 1) {
                 try {
                     notA.await();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-            if (count <= max)
-                System.out.println(Thread.currentThread().getName() + "   a");
-            count++;
+            if (cur <= max)
+                logger.log(Level.INFO, Thread.currentThread().getName() + "   a");
+            cur++;
             notB.signal();
             lock.unlock();
         }
     }
 
     public void print_b() {
-        while (count <= max) {
+        while (cur <= max) {
             lock.lock();
-            while (count % 3 != 2) {
+            while (cur % 3 != 2) {
                 try {
                     notB.await();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-            if (count <= max)
-                System.out.println(Thread.currentThread().getName() + "   b");
-            count++;
+            if (cur <= max)
+                logger.log(Level.INFO, Thread.currentThread().getName() + "   b");
+            cur++;
             notC.signal();
             lock.unlock();
         }
     }
 
     public void print_c() {
-        while (count <= max) {
+        while (cur <= max) {
             lock.lock();
-            while (count % 3 != 0) {
+            while (cur % 3 != 0) {
                 try {
                     notC.await();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-            if (count <= max)
-                System.out.println(Thread.currentThread().getName() + "   c");
-            count++;
+            if (cur <= max)
+                logger.log(Level.INFO, Thread.currentThread().getName() + "   c");
+            cur++;
             notA.signal();
             lock.unlock();
         }
