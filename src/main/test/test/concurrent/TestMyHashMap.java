@@ -51,6 +51,5 @@ public class TestMyHashMap {
         Assert.assertTrue(map.containsKey("lihang"));
         Assert.assertTrue(map.containsKey("test"));
         Assert.assertFalse(map.containsKey("test_2"));
-
     }
 }

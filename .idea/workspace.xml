@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="351e3dac-fbea-4b17-a3b6-e62d842818b2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/concurrent/ProducerAndConsumerByBlockingQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/concurrent/ProducerAndConsumerByCondition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/test/test/concurrent/TestBankHall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/concurrent/ABCPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/concurrent/ABCPrinter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/concurrent/ABCPrinterByCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/concurrent/ABCPrinterByCondition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/concurrent/BankHall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/concurrent/BankHall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/concurrent/PickNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/concurrent/PickNumber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/concurrent/ThreadPoolDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/concurrent/ThreadPoolDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/concurrent/TwoThreadPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/concurrent/TwoThreadPrint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/concurrent/TwoThreadPrinterByCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/concurrent/TwoThreadPrinterByCondition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/CopyProgram.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/ExcelDataProcess.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/structure/MyHashMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/structure/MyHashMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/student.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/student.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/test/TestMyHashMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/test/concurrent/TestMyHashMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/test/TestPickNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/test/concurrent/TestPickNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/test/concurrent/TestMyHashMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/test/concurrent/TestMyHashMap.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,7 +23,32 @@
     <favorites_list name="allDemo" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/test/test/concurrent/TestPickNumber.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="75" column="37" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/test/test/concurrent/TestMyHashMap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="660">
+              <caret line="48" column="19" lean-forward="true" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -54,7 +62,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>index for</find>
       <find>index</find>
       <find>putval</find>
       <find>put</find>
@@ -84,6 +91,7 @@
       <find>count</find>
       <find>awa</find>
       <find>awaitt</find>
+      <find>exception</find>
     </findStrings>
     <replaceStrings>
       <replace>notifyAll()</replace>
@@ -132,6 +140,7 @@
         <option value="$PROJECT_DIR$/src/main/test/test/TestBankHall.java" />
         <option value="$PROJECT_DIR$/src/main/java/concurrent/BankHall.java" />
         <option value="$PROJECT_DIR$/src/main/test/test/concurrent/TestBankHall.java" />
+        <option value="$PROJECT_DIR$/src/main/test/test/concurrent/TestMyHashMap.java" />
       </list>
     </option>
   </component>
@@ -169,12 +178,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
+      <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="allDemo" type="58d84e3e:PackageViewProjectNode" />
-              <item name="allDemo" type="616d4139:PackageViewModuleNode" />
+              <item name="allDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="allDemo" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -228,16 +237,25 @@
               <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
+            <path>
+              <item name="allDemo" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="allDemo" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="concurrent" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane">
+      <pane id="PackagesPane">
         <subPane>
           <expand>
             <path>
-              <item name="allDemo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="allDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="allDemo" type="58d84e3e:PackageViewProjectNode" />
+              <item name="allDemo" type="616d4139:PackageViewModuleNode" />
             </path>
           </expand>
           <select />
@@ -246,7 +264,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551251336545" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551358022828" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.35465115" />
@@ -436,8 +454,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49496645" visible="true" weight="0.2599278" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49496645" visible="true" weight="0.26498196" />
       <window_info id="Structure" order="1" sideWeight="0.50503355" side_tool="true" weight="0.23175965" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -811,16 +830,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/test/test/concurrent/TestMyHashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="34" column="58" lean-forward="true" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/src.zip!/java/util/Collections.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -850,13 +859,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
           <caret line="189" column="8" selection-start-line="189" selection-start-column="8" selection-end-line="189" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/test/test/concurrent/TestPickNumber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="25" lean-forward="true" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -893,6 +895,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
           <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/test/concurrent/TestPickNumber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="75" column="37" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/test/concurrent/TestMyHashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="48" column="19" lean-forward="true" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
